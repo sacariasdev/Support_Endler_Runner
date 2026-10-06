@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endler Sprint — Centro de soporte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Soporte de Endler Sprint</h1>
+    <p class="lead">¿Un bug, un lag o una idea? Cuéntanoslo con calma, nosotros lo revisamos.</p>
+
+    <form id="supportForm" class="panel" novalidate action="https://formsubmit.co/sacariasdev@gmail.com"
+      method="POST" enctype="multipart/form-data">
+      <div class="panel__head">
+        <span>Reporte</span>
+        <span class="tag" id="ticketNumber">#00000</span>
+      </div>
+
+      <div class="field">
+        <label for="tipo">Tipo de reporte</label>
+        <select id="tipo" name="tipo">
+          <option>Bug o error</option>
+          <option>Lag / rendimiento</option>
+          <option>Problema con controles</option>
+          <option>Sugerencia</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="email">Tu correo</label>
+        <input type="email" id="email" name="email" placeholder="jugador@correo.com" required>
+      </div>
+
+      <div class="field">
+        <label for="description">¿Qué pasó?</label>
+        <textarea id="description" name="description" rows="5" maxlength="800" required
+          placeholder="¿En qué nivel estabas, qué esperabas que pasara y qué pasó en realidad? Indica tu dispositivo si lo sabes."></textarea>
+        <span class="char-count" id="charCount">0 / 800</span>
+      </div>
+
+      <div class="field">
+        <label for="photo">Captura de pantalla (opcional)</label>
+        <div class="upload">
+          <input type="file" id="photo" name="attachment" accept="image/*">
+          <label for="photo" class="upload__button">Adjuntar captura</label>
+          <span class="upload__filename" id="fileName">Ningún archivo seleccionado</span>
+        </div>
+        <img id="preview" class="upload__preview" alt="Vista previa de la captura" hidden>
+      </div>
+
+      <!-- Config de FormSubmit. _subject y _next se completan por JS. -->
+      <input type="hidden" name="_subject" id="subjectField" value="[Support_Endler_Runner] Soporte">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" id="nextField" value="">
+
+      <button type="submit" class="send" id="submitBtn"><span id="submitLabel">Enviar reporte</span></button>
+      <p class="error-state" id="errorState" hidden></p>
+    </form>
+
+    <p class="footnote">Endler Sprint © 2026 — tu reporte llega directo al equipo.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
